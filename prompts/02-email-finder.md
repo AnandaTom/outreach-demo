@@ -91,4 +91,4 @@ If no useful content found on any page, set:
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/find-emails` skill
 2. Run a test: `/find-emails`
-3. Then tell me: "Step 2 done! You now have leads with emails AND website intel in data/leads_with_emails.json. Ready for step 3? Paste prompt 03-enricher.md to generate personalized icebreakers using AI."
+3. Then tell me: "Étape 2 terminée ! Leads avec emails dans data/leads_with_emails.json. Prêt pour l'étape 3 ? Ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/03-enricher.md"

@@ -110,4 +110,4 @@ After creating both files:
 1. Update the project CLAUDE.md to document the new `/write-emails` skill
 2. Run a test with my niche and offer
 3. Display all 4 emails so I can review them
-4. Then tell me: "Step 5 done! Your 4-email sequence is saved in data/sequence.json. Review the emails above. Ready for the final step? Paste prompt 06-push-to-instantly.md to push everything to Instantly and launch your campaign."
+4. Then tell me: "Étape 5 terminée ! Séquence 4 emails dans data/sequence.json. Relisez les emails ci-dessus. Ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/06-push-to-instantly.md"

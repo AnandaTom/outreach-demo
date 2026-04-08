@@ -111,4 +111,4 @@ If authentication fails at runtime, print clear setup instructions pointing back
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/save-to-sheets` skill
 2. Run a test: `/save-to-sheets`
-3. Then tell me: "Step 4 done! Open the Google Sheet link above and review your leads. Edit any icebreakers that sound off. Delete leads with empty personalization. When you're happy with the data, paste prompt 05-email-writer.md to generate your email sequence."
+3. Then tell me: "Étape 4 terminée ! Ouvrez le Google Sheet, relisez vos leads, modifiez les icebreakers qui sonnent faux. Quand c'est bon, ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/05-email-writer.md"
