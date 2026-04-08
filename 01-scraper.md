@@ -24,6 +24,7 @@ beautifulsoup4
 anthropic
 gspread
 google-auth
+google-auth-oauthlib
 python-dotenv
 ```
 
