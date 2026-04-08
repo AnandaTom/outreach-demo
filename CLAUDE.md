@@ -125,6 +125,8 @@ Template: `{observation casual} + {réaction courte positive}`
 - `Europe/Paris` is NOT in Instantly's timezone allowlist -> use `Europe/Belgrade` (same CET)
 - POST /leads does NOT support batch -> one request per lead, flat JSON object
 - Campaign creation requires `campaign_schedule` in the body or it returns 400
+- **Instantly v2 POST /leads: use `"campaign": uuid` (NOT `"campaign_id"`).** `"campaign_id"` returns 200 OK but silently creates orphaned leads not linked to any campaign. Verify after push with `POST /leads/list {"campaign": uuid}`.
+- `skip_if_in_workspace` is NOT a valid Instantly v2 field -> silently ignored. Remove it.
 - Dentists/doctors often redirect to Doctolib -> website_intel will be null. Gyms/restaurants have better sites.
 - Cookie consent / RGPD text pollutes body_preview -> filter it out in find-emails
 - When scraping emails, filter out: dataprivacy@, cookie@, rgpd@, dpo@, noreply@
