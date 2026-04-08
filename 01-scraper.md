@@ -8,11 +8,11 @@ I want to build a cold email outreach pipeline. Let's start with step 1: scrapin
 
 ## Step 0 — Get all the prompts
 
-Run this first to get all 7 prompts locally:
+Clone the repo into a temp location and copy the prompt files into this project:
 ```bash
-git clone https://github.com/AnandaTom/outreach-demo.git
+git clone https://github.com/AnandaTom/outreach-demo.git /tmp/outreach-demo-prompts && cp /tmp/outreach-demo-prompts/0*.md .
 ```
-This creates an `outreach-demo/` folder with all prompts inside. Nothing in your current project is touched.
+This copies `01-scraper.md` through `05-email-writer.md` directly into your current project directory.
 
 ## Setup (run this first, before anything else)
 
@@ -129,4 +129,4 @@ Progress output:
 After creating both files:
 1. Create a `CLAUDE.md` in the project root documenting the pipeline structure and the `/scrape` skill
 2. Test it with my niche and city
-3. Then tell me: "Étape 1 terminée ! Leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez outreach-demo/02-email-finder.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Étape 1 terminée ! Leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez 02-email-finder.md, copiez tout le contenu, et collez-le ici."
