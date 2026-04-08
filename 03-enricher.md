@@ -75,7 +75,9 @@ What to reference (strict priority order - use the HIGHEST available):
 3. **Something concrete from their site** (from body_preview) - a specific program, method, or offering
 4. **Their niche combined with a market insight** - connect what they do to a trend
 5. **Google reviews as SUPPORTING detail only** - never as the main point. OK to combine: "Spécialisés en implanto avec 4.8 sur Google, le bouche-à-oreille fait clairement le job." NOT OK alone: "1073 avis avec une 4.6"
-6. If ALL data is thin (no website_intel, no useful info): set verdict to false
+6. **Company name with a clear signal** - if the name itself reveals their niche or positioning (e.g. "OZENHIT" = Zen + HIIT, "Vita Liberte" = wellness/freedom, "On Air Fitness" = aerial fitness), write an icebreaker referencing that angle. This is valid signal.
+7. **Generic franchise names without intel** - if company_name is a known franchise (Keepcool, Basic-Fit, L'Orange Bleue, Neoness) AND there is no useful website_intel: set verdict to false. Franchise names alone carry no useful per-location signal.
+8. If ALL data is thin (no website_intel, generic/franchise name, nothing to reference): set verdict to false
 
 Format template (follow this structure):
 ```
@@ -113,7 +115,10 @@ Bad examples (include as "never write"):
 **Technical:**
 - Filter: only process leads that have a non-empty `email` field
 - Reads `ANTHROPIC_API_KEY` from environment (load .env if present)
+- Use `concurrent.futures.ThreadPoolExecutor` with max_workers=5 for parallel API calls (dramatically faster: 20 leads in ~8s vs ~40s sequential)
+- Preserve original lead order in output (use `enumerate` + sort by index after futures complete)
 - Prints progress: `[1/5] Liberty Gym -> "Cool le coaching perso + cours co, on voit pas ça souvent."` or `[1/5] Gym XYZ -> skipped (thin data)`
+- Note: with parallel execution, progress lines may print out of order - this is normal
 - Prints summary at end: "Done. X/Y icebreakers generated (Z skipped - thin data)"
 
 After creating both files:
