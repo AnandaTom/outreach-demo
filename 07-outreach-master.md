@@ -6,7 +6,7 @@ Paste this into Claude Code after building all 6 individual skills:
 
 Now let's consolidate everything into one clean master command.
 
-**Architecture decision:** Delete the individual skill SKILL.md files (scrape, find-emails, enrich, save-to-sheets, write-emails, push-to-instantly). Keep the Python scripts - they contain the real logic. The master `/outreach` skill replaces all 6 entry points via `/outreach <step>`.
+**Architecture decision:** Delete the individual skill SKILL.md files (scrape, find-emails, enrich, save-to-sheets, write-emails, push-to-instantly). Keep the Python scripts - they contain the real logic. The master `/outreach-master` skill replaces all 6 entry points via `/outreach-master <step>`.
 
 Result: one command in the menu instead of 7. No confusion.
 
@@ -26,13 +26,13 @@ Delete these files (keep the .py scripts):
 
 IMPORTANT: Create relative to THIS project directory (the one containing this CLAUDE.md).
 
-### `.claude/skills/outreach/SKILL.md`
+### `.claude/skills/outreach-master/SKILL.md`
 
 Frontmatter:
 ```yaml
 ---
-name: outreach
-description: Full cold email outreach pipeline. Runs all 6 steps in sequence or jump to any step. Usage: /outreach [step] [args]
+name: outreach-master
+description: Full cold email outreach pipeline. Runs all 6 steps in sequence or jump to any step. Usage: /outreach-master [step] [args]
 user-invocable: true
 argument-hint: [step] [args] - steps: scrape, find-emails, enrich, sheets, write, push, status, or "all"
 ---
@@ -55,10 +55,10 @@ Step 6: push          -> Instantly campaign             (INSTANTLY_API_KEY)
 
 ## Usage Modes
 
-- **`/outreach` or `/outreach all`**: Run all 6 steps in sequence. After each step, show a brief summary and ask "Continuer vers l'étape suivante ? (O/n)" before proceeding.
-- **`/outreach <step>`** (e.g. `/outreach scrape "gyms Paris"`): Run only that step. Pass extra args to the script.
-- **`/outreach from <step>`** (e.g. `/outreach from enrich`): Run from that step onward. Check required input files exist first.
-- **`/outreach status`**: Show which data files exist and their lead counts.
+- **`/outreach-master` or `/outreach-master all`**: Run all 6 steps in sequence. After each step, show a brief summary and ask "Continuer vers l'étape suivante ? (O/n)" before proceeding.
+- **`/outreach-master <step>`** (e.g. `/outreach-master scrape "gyms Paris"`): Run only that step. Pass extra args to the script.
+- **`/outreach-master from <step>`** (e.g. `/outreach-master from enrich`): Run from that step onward. Check required input files exist first.
+- **`/outreach-master status`**: Show which data files exist and their lead counts.
 
 ## Step Details
 
@@ -109,11 +109,11 @@ Missing key messages:
 - `ANTHROPIC_API_KEY` -> "Ajoutez ANTHROPIC_API_KEY dans .env (console.anthropic.com)"
 - `GOOGLE_SERVICE_ACCOUNT_JSON` -> "Configurez Google Sheets API (voir prompts/04-save-to-sheets.md)"
 - `INSTANTLY_API_KEY` -> "Ajoutez INSTANTLY_API_KEY dans .env (app.instantly.ai > Settings > API)"
-- Missing input file -> "Lancez d'abord /outreach <previous_step>"
+- Missing input file -> "Lancez d'abord /outreach-master <previous_step>"
 
 ## Status Command
 
-When `/outreach status`, read each JSON file and count entries:
+When `/outreach-master status`, read each JSON file and count entries:
 ```
 Pipeline status:
   [x] data/leads_raw.json          (5 leads)
@@ -122,7 +122,7 @@ Pipeline status:
   [x] data/sequence.json           (4 emails)
   [ ] Campagne Instantly           (pas encore lancée)
 
-Prochaine étape recommandée : /outreach push
+Prochaine étape recommandée : /outreach-master push
 ```
 
 ## Instantly API Hard-Won Rules
@@ -148,6 +148,6 @@ Discovered through testing - never ignore these:
 ---
 
 After creating the skill and deleting the individual SKILL.md files:
-1. Update the project CLAUDE.md to replace the 6 individual skill entries with just `/outreach`
-2. Run `/outreach status` to confirm the pipeline state
-3. Then tell me: "Pipeline complet ! Une seule commande : /outreach. Tapez /outreach all pour lancer le pipeline complet, ou /outreach status pour voir où vous en êtes."
+1. Update the project CLAUDE.md to replace the 6 individual skill entries with just `/outreach-master`
+2. Run `/outreach-master status` to confirm the pipeline state
+3. Then tell me: "Pipeline complet ! Une seule commande : /outreach-master. Tapez /outreach-master all pour lancer le pipeline complet, ou /outreach-master status pour voir où vous en êtes."
