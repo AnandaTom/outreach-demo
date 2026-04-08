@@ -129,4 +129,4 @@ Progress output:
 After creating both files:
 1. Create a `CLAUDE.md` in the project root documenting the pipeline structure and the `/scrape` skill
 2. Test it with my niche and city
-3. Then tell me: "Étape 1 terminée ! Leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez outreach-demo/prompts/02-email-finder.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Étape 1 terminée ! Leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez outreach-demo/02-email-finder.md, copiez tout le contenu, et collez-le ici."

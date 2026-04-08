@@ -1,7 +1,0 @@
-apify-client
-requests
-beautifulsoup4
-anthropic
-gspread
-google-auth
-python-dotenv

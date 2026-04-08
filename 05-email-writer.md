@@ -110,4 +110,4 @@ After creating both files:
 1. Update the project CLAUDE.md to document the new `/write-emails` skill
 2. Run a test with my niche and offer
 3. Display all 4 emails so I can review them
-4. Then tell me: "Étape 5 terminée ! Séquence 4 emails dans data/sequence.json. Relisez les emails ci-dessus. Ouvrez outreach-demo/prompts/06-push-to-instantly.md, copiez tout le contenu, et collez-le ici."
+4. Then tell me: "Étape 5 terminée ! Séquence 4 emails dans data/sequence.json. Relisez les emails ci-dessus. Ouvrez outreach-demo/06-push-to-instantly.md, copiez tout le contenu, et collez-le ici."
