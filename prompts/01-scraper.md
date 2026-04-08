@@ -4,14 +4,58 @@ Paste this into Claude Code:
 
 ---
 
-I want to create a cold email outreach pipeline. Let's start with step 1: scraping leads.
+I want to build a cold email outreach pipeline. Let's start with step 1: scraping leads.
 
-Before building anything, ask me:
+## Setup (run this first, before anything else)
+
+**1. Create `requirements.txt`** in the current directory with these dependencies:
+```
+apify-client
+requests
+beautifulsoup4
+anthropic
+gspread
+google-auth
+python-dotenv
+```
+
+**2. Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+Run this now and wait for it to finish before continuing.
+
+**3. Create `.env`** if it doesn't already exist. Check first — if it exists, leave it as-is. If not, create it with this content:
+```
+# Apify - lead scraping (apify.com)
+APIFY_API_KEY=
+
+# Anthropic - AI icebreakers + emails (console.anthropic.com)
+ANTHROPIC_API_KEY=
+
+# Google Sheets - save leads for review
+GOOGLE_SERVICE_ACCOUNT_JSON=
+SHARE_EMAIL=
+
+# Instantly - email sending (app.instantly.ai/settings/api)
+INSTANTLY_API_KEY=
+```
+
+**4. Check `APIFY_API_KEY`:** Read the `.env` file and check if `APIFY_API_KEY` has a value. If it's empty, walk me through getting one:
+- Go to apify.com and sign up (free tier available)
+- Settings > Integrations > API Token
+- Copy the token and add it to `.env`: `APIFY_API_KEY=your_token_here`
+
+Wait for me to confirm the key is set before continuing.
+
+---
+
+## Step 1 - Scrape leads
+
+Once setup is done, ask me:
 1. What's my niche?
 2. What city or region should we target?
 3. How many leads do I want to start with? (recommend 20-50 for a first test)
-
-Also check: do I have `APIFY_API_KEY` set in my `.env` file? If not, walk me through getting one at apify.com (sign up > Settings > Integrations > API Token).
 
 Once I answer, create a Claude Code skill called `scrape` that scrapes leads from Google Maps via Apify.
 
@@ -38,10 +82,10 @@ Body: instructions telling Claude to run the Python script below with the user's
 ### `.claude/skills/scrape/scrape.py`
 
 Python script that:
-- Uses the Apify client (`pip install apify-client`) to run the Google Places scraper (actor ID: `compass/crawler-google-places`)
-- Accepts CLI args: `--search` (the query, built from my niche + city), `--limit` (default 50), `--output` (default `data/leads_raw.json`)
-- Reads `APIFY_API_KEY` from environment (load .env if present)
-- If APIFY_API_KEY is missing, print clear setup instructions: where to get the key, how to add it to .env
+- Uses the Apify client to run the Google Places scraper (actor ID: `compass/crawler-google-places`)
+- Accepts CLI args: `--search` (the query, built from niche + city), `--limit` (default 50), `--output` (default `data/leads_raw.json`)
+- Reads `APIFY_API_KEY` from environment (load .env with python-dotenv)
+- If `APIFY_API_KEY` is missing or empty, print clear setup instructions and exit
 
 Normalization - map each Apify result to this standard schema:
 ```json
@@ -75,6 +119,6 @@ Progress output:
 - "Saved Y leads to data/leads_raw.json"
 
 After creating both files:
-1. Update the project CLAUDE.md to document the new `/scrape` skill (add it to the available commands)
+1. Create a `CLAUDE.md` in the project root documenting the pipeline structure and the `/scrape` skill
 2. Test it with my niche and city
-3. Then tell me: "Step 1 done! You now have leads in data/leads_raw.json. Ready for step 2? Paste prompt 02-email-finder.md to find email addresses for these leads."
+3. Then tell me: "Étape 1 terminée ! Vous avez des leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Collez le contenu de prompts/02-email-finder.md pour trouver les adresses email."
