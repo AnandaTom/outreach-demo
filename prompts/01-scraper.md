@@ -6,6 +6,14 @@ Paste this into Claude Code:
 
 I want to build a cold email outreach pipeline. Let's start with step 1: scraping leads.
 
+## Step 0 — Get all the prompts
+
+Run this first to get all 7 prompts locally:
+```bash
+git clone https://github.com/AnandaTom/outreach-demo.git
+```
+This creates an `outreach-demo/` folder with all prompts inside. Nothing in your current project is touched.
+
 ## Setup (run this first, before anything else)
 
 **1. Create `requirements.txt`** in the current directory with these dependencies:
@@ -121,4 +129,4 @@ Progress output:
 After creating both files:
 1. Create a `CLAUDE.md` in the project root documenting the pipeline structure and the `/scrape` skill
 2. Test it with my niche and city
-3. Then tell me: "Étape 1 terminée ! Vous avez des leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/02-email-finder.md"
+3. Then tell me: "Étape 1 terminée ! Leads dans data/leads_raw.json. Prêt pour l'étape 2 ? Ouvrez outreach-demo/prompts/02-email-finder.md, copiez tout le contenu, et collez-le ici."

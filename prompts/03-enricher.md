@@ -119,4 +119,4 @@ Bad examples (include as "never write"):
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/enrich` skill
 2. Run a test: `/enrich`
-3. Then tell me: "Étape 3 terminée ! Icebreakers générés dans data/leads_enriched.json. Prêt pour l'étape 4 ? Ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/04-save-to-sheets.md"
+3. Then tell me: "Étape 3 terminée ! Icebreakers générés dans data/leads_enriched.json. Prêt pour l'étape 4 ? Ouvrez outreach-demo/prompts/04-save-to-sheets.md, copiez tout le contenu, et collez-le ici."

@@ -68,4 +68,4 @@ Bonus: if `--sequence` not provided, just create/update the campaign with leads 
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/push-to-instantly` skill
 2. Run a test with my campaign name
-3. Then tell me: "Les 6 skills sont construits ! Pour tout consolider en une seule commande /outreach, ouvrez cette page, copiez tout le contenu, et collez-le ici : https://github.com/AnandaTom/outreach-demo/blob/master/prompts/07-outreach-master.md"
+3. Then tell me: "Les 6 skills sont construits ! Pour tout consolider en une seule commande /outreach, ouvrez outreach-demo/prompts/07-outreach-master.md, copiez tout le contenu, et collez-le ici."
