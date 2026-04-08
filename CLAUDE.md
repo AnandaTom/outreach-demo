@@ -50,13 +50,15 @@ Each step produces a JSON file consumed by the next:
 
 | Skill | Usage | Output |
 |-------|-------|--------|
-| `/scrape` | `/scrape <query> [--limit N]` | `data/leads_raw.json` |
-| `/find-emails` | `/find-emails [--leads path]` | `data/leads_with_emails.json` (+ email + website_intel) |
-| `/enrich` | `/enrich [--leads path]` | `data/leads_enriched.json` (+ shortened_name + personalization) |
-| `/save-to-sheets` | `/save-to-sheets [--leads path]` | Google Sheet URL |
-| `/write-emails` | `/write-emails <niche> <offer>` | `data/sequence.json` |
-| `/push-to-instantly` | `/push-to-instantly <campaign_name>` | Instantly campaign |
-| `/outreach` | `/outreach [all\|status\|from <step>]` | Full pipeline orchestration |
+| `/outreach-master` | `/outreach-master [all\|status\|from <step>\|<step> [args]]` | Full pipeline orchestration |
+
+Individual step scripts (called by `/outreach-master`, not used directly):
+- `scrape.py` -> `data/leads_raw.json`
+- `find_emails.py` -> `data/leads_with_emails.json`
+- `enrich.py` -> `data/leads_enriched.json`
+- `save_to_sheets.py` -> Google Sheet URL
+- `email_writer.py` -> `data/sequence.json`
+- `push_to_instantly.py` -> Instantly campaign
 
 ## Stack
 
