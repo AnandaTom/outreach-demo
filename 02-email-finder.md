@@ -91,4 +91,4 @@ If no useful content found on any page, set:
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/find-emails` skill
 2. Run a test: `/find-emails`
-3. Then tell me: "Étape 2 terminée ! Leads avec emails dans data/leads_with_emails.json. Prêt pour l'étape 3 ? Ouvrez outreach-demo/03-enricher.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Étape 2 terminée ! Leads avec emails dans data/leads_with_emails.json. Prêt pour l'étape 3 ? Ouvrez 03-enricher.md, copiez tout le contenu, et collez-le ici."

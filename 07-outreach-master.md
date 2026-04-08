@@ -63,35 +63,35 @@ Step 6: push          -> Instantly campaign             (INSTANTLY_API_KEY)
 ## Step Details
 
 ### Step 1: Scrape
-- Script: `python .claude/skills/scrape/scrape.py --search "<query>" --limit <N>`
+- Script: `python3 .claude/skills/scrape/scrape.py --search "<query>" --limit <N>`
 - Requires: `APIFY_API_KEY`
 - Ask for search query and limit if not provided
 
 ### Step 2: Find Emails
-- Script: `python .claude/skills/find-emails/find_emails.py`
+- Script: `python3 .claude/skills/find-emails/find_emails.py`
 - Requires: nothing (requests + beautifulsoup4)
 - Needs: `data/leads_raw.json`
 
 ### Step 3: Enrich
-- Script: `python .claude/skills/enrich/enrich.py`
+- Script: `python3 .claude/skills/enrich/enrich.py`
 - Requires: `ANTHROPIC_API_KEY`
 - Needs: `data/leads_with_emails.json`
 - After: "Relisez les icebreakers ! Est-ce qu'un vrai humain enverrait ça ?"
 
 ### Step 4: Save to Sheets
-- Script: `python .claude/skills/save-to-sheets/save_to_sheets.py`
+- Script: `python3 .claude/skills/save-to-sheets/save_to_sheets.py`
 - Requires: `GOOGLE_SERVICE_ACCOUNT_JSON`
 - Needs: `data/leads_enriched.json`
 - After: "Ouvrez le Google Sheet, relisez, modifiez les icebreakers qui sonnent faux, supprimez les leads sans personnalisation."
 
 ### Step 5: Write Emails
-- Script: `python .claude/skills/write-emails/email_writer.py --niche "<niche>" --offer "<offer>"`
+- Script: `python3 .claude/skills/write-emails/email_writer.py --niche "<niche>" --offer "<offer>"`
 - Requires: `ANTHROPIC_API_KEY`
 - Ask for niche and offer if not provided
 - After: display all 4 emails and ask the user to review
 
 ### Step 6: Push to Instantly
-- Script: `python .claude/skills/push-to-instantly/push_to_instantly.py --campaign "<name>"`
+- Script: `python3 .claude/skills/push-to-instantly/push_to_instantly.py --campaign "<name>"`
 - Requires: `INSTANTLY_API_KEY`
 - Needs: `data/leads_enriched.json` + `data/sequence.json`
 - Ask for campaign name if not provided
@@ -107,7 +107,7 @@ Before each step:
 Missing key messages:
 - `APIFY_API_KEY` -> "Ajoutez APIFY_API_KEY dans .env (apify.com > Settings > Integrations > API Token)"
 - `ANTHROPIC_API_KEY` -> "Ajoutez ANTHROPIC_API_KEY dans .env (console.anthropic.com)"
-- `GOOGLE_SERVICE_ACCOUNT_JSON` -> "Configurez Google Sheets API (voir prompts/04-save-to-sheets.md)"
+- `GOOGLE_SERVICE_ACCOUNT_JSON` -> "Configurez Google Sheets API (voir 04-save-to-sheets.md)"
 - `INSTANTLY_API_KEY` -> "Ajoutez INSTANTLY_API_KEY dans .env (app.instantly.ai > Settings > API)"
 - Missing input file -> "Lancez d'abord /outreach-master <previous_step>"
 

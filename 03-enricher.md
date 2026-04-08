@@ -113,10 +113,10 @@ Bad examples (include as "never write"):
 **Technical:**
 - Filter: only process leads that have a non-empty `email` field
 - Reads `ANTHROPIC_API_KEY` from environment (load .env if present)
-- Prints progress: `[1/5] Liberty Gym -> "342 avis Google avec une 4.1..."` or `[1/5] Gym XYZ -> skipped (thin data)`
+- Prints progress: `[1/5] Liberty Gym -> "Cool le coaching perso + cours co, on voit pas ça souvent."` or `[1/5] Gym XYZ -> skipped (thin data)`
 - Prints summary at end: "Done. X/Y icebreakers generated (Z skipped - thin data)"
 
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/enrich` skill
 2. Run a test: `/enrich`
-3. Then tell me: "Étape 3 terminée ! Icebreakers générés dans data/leads_enriched.json. Prêt pour l'étape 4 ? Ouvrez outreach-demo/04-save-to-sheets.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Étape 3 terminée ! Icebreakers générés dans data/leads_enriched.json. Prêt pour l'étape 4 ? Ouvrez 04-save-to-sheets.md, copiez tout le contenu, et collez-le ici."

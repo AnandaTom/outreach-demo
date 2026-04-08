@@ -46,7 +46,7 @@ Wait for my confirmation.
 **Step 7 - Verify**
 Run a quick Python test to check the authentication works:
 ```python
-python -c "
+python3 -c "
 from google.oauth2.service_account import Credentials
 from dotenv import load_dotenv
 import os
@@ -111,4 +111,4 @@ If authentication fails at runtime, print clear setup instructions pointing back
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/save-to-sheets` skill
 2. Run a test: `/save-to-sheets`
-3. Then tell me: "Étape 4 terminée ! Ouvrez le Google Sheet, relisez vos leads, modifiez les icebreakers qui sonnent faux. Quand c'est bon, ouvrez outreach-demo/05-email-writer.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Étape 4 terminée ! Ouvrez le Google Sheet, relisez vos leads, modifiez les icebreakers qui sonnent faux. Quand c'est bon, ouvrez 05-email-writer.md, copiez tout le contenu, et collez-le ici."

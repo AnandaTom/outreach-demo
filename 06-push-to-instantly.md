@@ -49,7 +49,7 @@ Steps:
 5. Add filtered leads (POST /leads) - **one request per lead** (the API does NOT support batch). For each lead, POST a flat JSON object: `{"email": ..., "first_name": "", "last_name": "", "company_name": shortened_name, "personalization": ..., "website": ..., "phone": ..., "campaign_id": ..., "skip_if_in_workspace": true}`. Print `+ email@domain` on success, `! email@domain -> skipped (reason)` on error.
 6. Print: "Added X leads to campaign 'NAME' (ID: xxx)"
 7. Print the deliverability checklist (see below)
-8. Ask user: "Launch campaign now? (y/N)" - if yes, POST /campaigns/{id}/launch. This starts sending emails according to the schedule (08:00-18:00, Mon-Fri, Europe/Paris).
+8. Ask user: "Launch campaign now? (y/N)" - if yes, POST /campaigns/{id}/launch. This starts sending emails according to the schedule (08:00-18:00, Mon-Fri, Europe/Belgrade / CET).
 
 Deliverability checklist (print before the launch prompt):
 ```
@@ -68,4 +68,4 @@ Bonus: if `--sequence` not provided, just create/update the campaign with leads 
 After creating both files:
 1. Update the project CLAUDE.md to document the new `/push-to-instantly` skill
 2. Run a test with my campaign name
-3. Then tell me: "Les 6 skills sont construits ! Pour tout consolider en une seule commande /outreach, ouvrez outreach-demo/07-outreach-master.md, copiez tout le contenu, et collez-le ici."
+3. Then tell me: "Les 6 skills sont construits ! Pour tout consolider en une seule commande /outreach-master, ouvrez 07-outreach-master.md, copiez tout le contenu, et collez-le ici."

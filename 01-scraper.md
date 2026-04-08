@@ -10,7 +10,7 @@ I want to build a cold email outreach pipeline. Let's start with step 1: scrapin
 
 Clone the repo into a temp location and copy the prompt files into this project:
 ```bash
-git clone https://github.com/AnandaTom/outreach-demo.git /tmp/outreach-demo-prompts && cp /tmp/outreach-demo-prompts/0*.md .
+rm -rf /tmp/outreach-demo-prompts && git clone https://github.com/AnandaTom/outreach-demo.git /tmp/outreach-demo-prompts && cp /tmp/outreach-demo-prompts/0*.md .
 ```
 This copies all 7 prompt files (`01-scraper.md` through `07-outreach-master.md`) directly into your current project directory.
 
@@ -105,9 +105,11 @@ Normalization - map each Apify result to this standard schema:
   "address": "12 Rue Example, 75010 Paris",
   "rating": 4.2,
   "reviews_count": 187,
-  "industry": "from user input"
+  "industry": "set from --industry arg"
 }
 ```
+
+The script must accept a `--industry` CLI arg (e.g. `--industry "gyms"`) and stamp every normalized lead with that value. Derive it from the user's niche answer if not explicitly passed.
 
 Filtering:
 - Only keep leads with a non-empty `website` field (no website = can't find email in step 2)
